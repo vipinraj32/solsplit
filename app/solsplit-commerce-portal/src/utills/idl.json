@@ -1,0 +1,131 @@
+{
+  "address": "HBYtffP74L6BGCL7FxgLTBt1s6eFPgUqm7PB5qMGzt1g",
+  "metadata": {
+    "name": "bnpl_kyc",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "store_user_kyc",
+      "discriminator": [
+        192,
+        68,
+        56,
+        192,
+        215,
+        81,
+        39,
+        35
+      ],
+      "accounts": [
+        {
+          "name": "user_data",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114,
+                  95,
+                  107,
+                  121,
+                  99
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "mobile",
+          "type": "string"
+        },
+        {
+          "name": "gov_id",
+          "type": "string"
+        },
+        {
+          "name": "face_verified",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "UserKycData",
+      "discriminator": [
+        174,
+        246,
+        156,
+        123,
+        82,
+        187,
+        131,
+        105
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "UserKycData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "mobile",
+            "type": "string"
+          },
+          {
+            "name": "gov_id",
+            "type": "string"
+          },
+          {
+            "name": "face_verified",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}
